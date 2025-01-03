@@ -22,7 +22,9 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.12.7.1" % "provided",
   "org.json4s" %% "json4s-jackson" % "3.6.10" % "provided",
   "com.typesafe" % "config" % "1.4.2",
-  "org.scalaj" %% "scalaj-http" % "2.4.2"
+  "org.scalaj" %% "scalaj-http" % "2.4.2",
+  "net.snowflake" % "snowflake-jdbc" % "3.14.4",
+  "net.snowflake" %% "spark-snowflake" % "2.11.0-spark_3.3"
 )
 
 

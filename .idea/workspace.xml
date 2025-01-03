@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5744b60b-1766-4356-86b1-ec906b5df619" name="Changes" comment="first commit">
+    <list default="true" id="5744b60b-1766-4356-86b1-ec906b5df619" name="Changes" comment="second commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
@@ -103,6 +103,15 @@
 }</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <envs>
+        <env name="sfURL" value="https://so56445.ap-southeast-1.snowflakecomputing.com" />
+        <env name="sfDatabase" value="NEWDATABASE" />
+        <env name="sfSchema" value="MYSCHEMA" />
+        <env name="sfWarehouse" value="COMPUTE_WH" />
+        <env name="sfRole" value="ACCOUNTADMIN" />
+        <env name="sfUser" value="KPC12" />
+        <env name="sfPassword" value="986@Krediffmail.com" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="projectDelta" />
       <shortenClasspath name="MANIFEST" />
@@ -139,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735359503944</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="second commit">
+      <option name="closed" value="true" />
+      <created>1735661992353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735661992353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +172,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
   </component>
 </project>

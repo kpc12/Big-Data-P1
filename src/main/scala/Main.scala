@@ -8,6 +8,7 @@ import org.json4s
 import org.json4s._
 import org.json4s.jackson.JsonMethods.parse
 import java.util.Properties
+import System.getenv
 object Main {
   Logger.getLogger("org").setLevel(Level.ERROR)
   case class ApiData(id:String,name: String,brewery_type: String)
@@ -18,6 +19,16 @@ object Main {
       .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
       .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
       .getOrCreate()
+
+    val options = Map(
+      "sfURL" -> getenv("sfURL"),
+      "sfDatabase" -> getenv("sfDatabase"),
+      "sfSchema" -> getenv("sfSchema"),
+      "sfWarehouse" -> getenv("sfWarehouse"),
+      "sfRole" -> getenv("sfRole"),  // Optional
+      "sfUser" -> getenv("sfUser"),
+      "sfPassword" -> getenv("sfPassword")
+    )
     val apiUrl = "https://api.openbrewerydb.org/breweries"
     val jsonResponse = callApi(apiUrl)
     val parsedJson = parseJson(jsonResponse)
@@ -31,12 +42,21 @@ object Main {
     } yield ApiData(id,name,brewery_type)
     import spark.implicits._
     val df = spark.createDataFrame(data)
+
     df.show()
+
     df.write
       .format("delta")
       .partitionBy("brewery_type")
       .mode("append")
       .save("E:/beverage")
+
+    df.write
+      .format("net.snowflake.spark.snowflake")
+      .options(options)
+      .option("dbtable","BREWERIES")
+      .mode("append")
+      .save
 
 //   def auditChanges(deltaTable: DeltaTable) = {
 //     print("showing history")
